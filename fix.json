@@ -1,0 +1,12 @@
+[
+  {
+    "model": "rec.User",
+    "pk": 1000,
+    "fields": {
+    "user_name": "John" ,
+    "user_password": "Lennon" ,
+    "mail_id": "y@h.com" ,
+    "phonenumber": "90" }
+  }
+]
+

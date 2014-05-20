@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome Note {% endblock %}
+{% load staticfiles %}
+{% block content %}
+<head>
+ <link rel="stylesheet" href="mystyle.css">
+</head>
+<fieldset>
+<legend><h1 style="color:olive">{{Movie.title}}</h1>  <div> <p> <h3> <a href="/{{User.id}}"><strong> Logout  </strong> </a> </h3>
+ </p> </div></legend>
+ <div> <p> <h3> <a href="/{{Session.id}}/home/"><strong> Home  </strong> </a> </h3>
+ </p> </div>
+<p> Imdb rating :  <strong>{{ Movie.imdb_rating }}</strong>
+<br> Description :  <strong>{{ Movie.description }}</strong> </br>
+
+<br> Genre :  <strong>{{ Movie.genre }}</strong> </br>
+
+<br> Release Date :  <strong>{{ Movie.release_date }}</strong> </br>
+
+<div> <img src="{% static "myn.jpg" %}" alt="My image" width="200pt" height="300pt"/>
+
+</div>
+</p>
+<form action="/{{Session.id}}/movie/{{Movie.id}}/" method="post">{% csrf_token %}
+
+{% if wish == 'y' %}
+Remove from watch list
+</br>
+<label for="rwish">Yes</label>
+ <input type="radio" name="rwish" value="y">
+<label for="rwish">No</label>
+<input type="radio" name="rwish" value="n">
+<input type="submit" name="ratesub" value="submit">
+{% else %}
+
+{% if rate > 0 %}
+<br> Your rating :  <strong>{{ rate }}</strong> </br>
+
+{% else %}
+
+Add to watch list
+</br>
+<label for="wish">Yes</label>
+ <input type="radio" name="wish" value="y">
+<label for="wish">No</label>
+<input type="radio" name="wish" value="n">
+</br>
+Rate This Movie
+<table border="0">
+<tr>
+  <td><label for="rate"> 1-</label></td>
+  <td><label for="rate">-2-</label></td>
+<td><label for="rate">-3-</label></td>
+  <td><label for="rate">-4-</label></td>
+<td><label for="rate">-5-</label></td>
+  <td><label for="rate">-6-</label></td>
+<td><label for="rate">-7-</label></td>
+  <td><label for="rate">-8-</label></td>
+<td><label for="rate">-9-</label></td>
+  <td><label for="rate">-10</label></td>
+</tr>
+<tr>
+  
+<td><input type="radio" name="rate" value="1"></td>
+  <td> <input type="radio" name="rate" value="2"> </td>
+  <td><input type="radio" name="rate" value="3"> </td>
+<td><input type="radio" name="rate" value="4"></td>
+  <td> <input type="radio" name="rate" value="5"> </td>
+  <td><input type="radio" name="rate" value="6"> </td>
+  <td> <input type="radio" name="rate" value="7"> </td>
+  <td><input type="radio" name="rate" value="8"> </td>
+ <td><input type="radio" name="rate" value="9"> </td>
+ <td><input type="radio" name="rate" value="10"> </td>
+</tr>
+</table>
+{% endif %}
+
+</br>
+{% if tags == None %}
+<label for="review">Review this movie </label>
+</br>
+<textarea name="review" style="width:250px;height:150px;"></textarea>
+</br>
+</br> 
+<input type="submit" name="ratesub" value="submit">
+</form>
+{% else %}
+<br> Review :  <strong>{{ tags }}</strong> </br>
+{% endif %}
+
+{% endif %}
+
+{% if flag == 1 %}
+{% for friend in friends %}
+
+{{friend.user_name}} 
+{% endfor %}
+{% endif %}
+
+</fieldset>
+{% endblock content %}

@@ -1,0 +1,361 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome Note {% endblock %}
+
+{% block content %}
+<head>
+ <link rel="stylesheet" href="mystyle.css">
+</head>
+<h1> Rate movies </h1>
+<fieldset>
+<legend><h1 style="color:olive">{{user.user_name}}</h1></legend>
+
+<form action="/{{Session.id}}/initial/" method="post">{% csrf_token %}
+        <input type="text" name="name">
+	<select name="selection">
+	<option value="M">Movie</option>
+	<option value="B">Book</option>
+	</select>
+        <input type="submit" value="Search">
+
+<div class=error>
+	    		{% if Error  %}
+		    	<h6 style="color:red"><b>Invalid search please enter another value!</b></h6>
+			    {% endif %}
+    		</div>
+    </form>
+
+<form action="/{{Session.id}}/initial/" method="post" accept-charset="utf-8">{% csrf_token %} 
+<h3 style="color:green"> Have you seen these movies? Rate it now (Rating out of 10. Give 0 rating if not seen) </h3>
+<h4> Troy 
+<table border="0">
+<tr>
+  <td><label for="rate1"> 0-</label></td>	
+  <td><label for="rate1"> -1-</label></td>
+  <td><label for="rate1">-2-</label></td>
+<td><label for="rate1">-3-</label></td>
+  <td><label for="rate1">-4-</label></td>
+<td><label for="rate1">-5-</label></td>
+  <td><label for="rate1">-6-</label></td>
+<td><label for="rate1">-7-</label></td>
+  <td><label for="rate1">-8-</label></td>
+<td><label for="rate1">-9-</label></td>
+  <td><label for="rate1">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate1" value="0"></td> 
+<td><input type="radio" name="rate1" value="1"></td>
+  <td> <input type="radio" name="rate1" value="2"> </td>
+  <td><input type="radio" name="rate1" value="3"> </td>
+<td><input type="radio" name="rate1" value="4"></td>
+  <td> <input type="radio" name="rate1" value="5"> </td>
+  <td><input type="radio" name="rate1" value="6"> </td>
+  <td> <input type="radio" name="rate1" value="7"> </td>
+  <td><input type="radio" name="rate1" value="8"> </td>
+ <td><input type="radio" name="rate1" value="9"> </td>
+ <td><input type="radio" name="rate1" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h4> Toy story
+<table border="0">
+<tr>
+  <td><label for="rate2"> 0-</label></td>	
+  <td><label for="rate2"> -1-</label></td>
+  <td><label for="rate2">-2-</label></td>
+<td><label for="rate2">-3-</label></td>
+  <td><label for="rate2">-4-</label></td>
+<td><label for="rate2">-5-</label></td>
+  <td><label for="rate2">-6-</label></td>
+<td><label for="rate2">-7-</label></td>
+  <td><label for="rate2">-8-</label></td>
+<td><label for="rate2">-9-</label></td>
+  <td><label for="rate2">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate2" value="0"></td> 
+<td><input type="radio" name="rate2" value="1"></td>
+  <td> <input type="radio" name="rate2" value="2"> </td>
+  <td><input type="radio" name="rate2" value="3"> </td>
+<td><input type="radio" name="rate2" value="4"></td>
+  <td> <input type="radio" name="rate2" value="5"> </td>
+  <td><input type="radio" name="rate2" value="6"> </td>
+  <td> <input type="radio" name="rate2" value="7"> </td>
+  <td><input type="radio" name="rate2" value="8"> </td>
+ <td><input type="radio" name="rate2" value="9"> </td>
+ <td><input type="radio" name="rate2" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h4> Die Hard
+<table border="0">
+<tr>
+  <td><label for="rate3"> 0-</label></td>	
+  <td><label for="rate3"> -1-</label></td>
+  <td><label for="rate3">-2-</label></td>
+<td><label for="rate3">-3-</label></td>
+  <td><label for="rate3">-4-</label></td>
+<td><label for="rate3">-5-</label></td>
+  <td><label for="rate3">-6-</label></td>
+<td><label for="rate3">-7-</label></td>
+  <td><label for="rate3">-8-</label></td>
+<td><label for="rate3">-9-</label></td>
+  <td><label for="rate3">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate3" value="0"></td> 
+<td><input type="radio" name="rate3" value="1"></td>
+  <td> <input type="radio" name="rate3" value="2"> </td>
+  <td><input type="radio" name="rate3" value="3"> </td>
+<td><input type="radio" name="rate3" value="4"></td>
+  <td> <input type="radio" name="rate3" value="5"> </td>
+  <td><input type="radio" name="rate3" value="6"> </td>
+  <td> <input type="radio" name="rate3" value="7"> </td>
+  <td><input type="radio" name="rate3" value="8"> </td>
+ <td><input type="radio" name="rate3" value="9"> </td>
+ <td><input type="radio" name="rate3" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h4> Forrest Gump
+<table border="0">
+<tr>
+  <td><label for="rate4"> 0-</label></td>	
+  <td><label for="rate4"> -1-</label></td>
+  <td><label for="rate4">-2-</label></td>
+<td><label for="rate4">-3-</label></td>
+  <td><label for="rate4">-4-</label></td>
+<td><label for="rate4">-5-</label></td>
+  <td><label for="rate4">-6-</label></td>
+<td><label for="rate4">-7-</label></td>
+  <td><label for="rate4">-8-</label></td>
+<td><label for="rate4">-9-</label></td>
+  <td><label for="rate4">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate4" value="0"></td> 
+<td><input type="radio" name="rate4" value="1"></td>
+  <td> <input type="radio" name="rate4" value="2"> </td>
+  <td><input type="radio" name="rate4" value="3"> </td>
+<td><input type="radio" name="rate4" value="4"></td>
+  <td> <input type="radio" name="rate4" value="5"> </td>
+  <td><input type="radio" name="rate4" value="6"> </td>
+  <td> <input type="radio" name="rate4" value="7"> </td>
+  <td><input type="radio" name="rate4" value="8"> </td>
+ <td><input type="radio" name="rate4" value="9"> </td>
+ <td><input type="radio" name="rate4" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h4> Jumanji
+<table border="0">
+<tr>
+  <td><label for="rate5"> 0-</label></td>	
+  <td><label for="rate5"> -1-</label></td>
+  <td><label for="rate5">-2-</label></td>
+<td><label for="rate5">-3-</label></td>
+  <td><label for="rate5">-4-</label></td>
+<td><label for="rate5">-5-</label></td>
+  <td><label for="rate5">-6-</label></td>
+<td><label for="rate5">-7-</label></td>
+  <td><label for="rate5">-8-</label></td>
+<td><label for="rate5">-9-</label></td>
+  <td><label for="rate5">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate5" value="0"></td> 
+<td><input type="radio" name="rate5" value="1"></td>
+  <td> <input type="radio" name="rate5" value="2"> </td>
+  <td><input type="radio" name="rate5" value="3"> </td>
+<td><input type="radio" name="rate5" value="4"></td>
+  <td> <input type="radio" name="rate5" value="5"> </td>
+  <td><input type="radio" name="rate5" value="6"> </td>
+  <td> <input type="radio" name="rate5" value="7"> </td>
+  <td><input type="radio" name="rate5" value="8"> </td>
+ <td><input type="radio" name="rate5" value="9"> </td>
+ <td><input type="radio" name="rate5" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h3 style="color:green"> Have you read these books? Rate it now (Rating out of 10. Give 0 rating if not seen) </h3>
+<h4> The God of Small Things
+<table border="0">
+<tr>
+  <td><label for="rate6"> 0-</label></td>	
+  <td><label for="rate6"> -1-</label></td>
+  <td><label for="rate6">-2-</label></td>
+<td><label for="rate6">-3-</label></td>
+  <td><label for="rate6">-4-</label></td>
+<td><label for="rate6">-5-</label></td>
+  <td><label for="rate6">-6-</label></td>
+<td><label for="rate6">-7-</label></td>
+  <td><label for="rate6">-8-</label></td>
+<td><label for="rate6">-9-</label></td>
+  <td><label for="rate6">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate6" value="0"></td> 
+<td><input type="radio" name="rate6" value="1"></td>
+  <td> <input type="radio" name="rate6" value="2"> </td>
+  <td><input type="radio" name="rate6" value="3"> </td>
+<td><input type="radio" name="rate6" value="4"></td>
+  <td> <input type="radio" name="rate6" value="5"> </td>
+  <td><input type="radio" name="rate6" value="6"> </td>
+  <td> <input type="radio" name="rate6" value="7"> </td>
+  <td><input type="radio" name="rate6" value="8"> </td>
+ <td><input type="radio" name="rate6" value="9"> </td>
+ <td><input type="radio" name="rate6" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h4> Little Altars Everywhere
+<table border="0">
+<tr>
+  <td><label for="rate7"> 0-</label></td>	
+  <td><label for="rate7"> -1-</label></td>
+  <td><label for="rate7">-2-</label></td>
+<td><label for="rate7">-3-</label></td>
+  <td><label for="rate7">-4-</label></td>
+<td><label for="rate7">-5-</label></td>
+  <td><label for="rate7">-6-</label></td>
+<td><label for="rate7">-7-</label></td>
+  <td><label for="rate7">-8-</label></td>
+<td><label for="rate7">-9-</label></td>
+  <td><label for="rate7">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate7" value="0"></td> 
+<td><input type="radio" name="rate7" value="1"></td>
+  <td> <input type="radio" name="rate7" value="2"> </td>
+  <td><input type="radio" name="rate7" value="3"> </td>
+<td><input type="radio" name="rate7" value="4"></td>
+  <td> <input type="radio" name="rate7" value="5"> </td>
+  <td><input type="radio" name="rate7" value="6"> </td>
+  <td> <input type="radio" name="rate7" value="7"> </td>
+  <td><input type="radio" name="rate7" value="8"> </td>
+ <td><input type="radio" name="rate7" value="9"> </td>
+ <td><input type="radio" name="rate7" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h4> Harry Potter and the Sorcerer's Stone
+<table border="0">
+<tr>
+  <td><label for="rate8"> 0-</label></td>	
+  <td><label for="rate8"> -1-</label></td>
+  <td><label for="rate8">-2-</label></td>
+<td><label for="rate8">-3-</label></td>
+  <td><label for="rate8">-4-</label></td>
+<td><label for="rate8">-5-</label></td>
+  <td><label for="rate8">-6-</label></td>
+<td><label for="rate8">-7-</label></td>
+  <td><label for="rate8">-8-</label></td>
+<td><label for="rate8">-9-</label></td>
+  <td><label for="rate8">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate8" value="0"></td> 
+<td><input type="radio" name="rate8" value="1"></td>
+  <td> <input type="radio" name="rate8" value="2"> </td>
+  <td><input type="radio" name="rate8" value="3"> </td>
+<td><input type="radio" name="rate8" value="4"></td>
+  <td> <input type="radio" name="rate8" value="5"> </td>
+  <td><input type="radio" name="rate8" value="6"> </td>
+  <td> <input type="radio" name="rate8" value="7"> </td>
+  <td><input type="radio" name="rate8" value="8"> </td>
+ <td><input type="radio" name="rate8" value="9"> </td>
+ <td><input type="radio" name="rate8" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h4> Twilight
+<table border="0">
+<tr>
+  <td><label for="rate9"> 0-</label></td>	
+  <td><label for="rate9"> -1-</label></td>
+  <td><label for="rate9">-2-</label></td>
+<td><label for="rate9">-3-</label></td>
+  <td><label for="rate9">-4-</label></td>
+<td><label for="rate9">-5-</label></td>
+  <td><label for="rate9">-6-</label></td>
+<td><label for="rate9">-7-</label></td>
+  <td><label for="rate9">-8-</label></td>
+<td><label for="rate9">-9-</label></td>
+  <td><label for="rate9">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate9" value="0"></td> 
+<td><input type="radio" name="rate9" value="1"></td>
+  <td> <input type="radio" name="rate9" value="2"> </td>
+  <td><input type="radio" name="rate9" value="3"> </td>
+<td><input type="radio" name="rate9" value="4"></td>
+  <td> <input type="radio" name="rate9" value="5"> </td>
+  <td><input type="radio" name="rate9" value="6"> </td>
+  <td> <input type="radio" name="rate9" value="7"> </td>
+  <td><input type="radio" name="rate9" value="8"> </td>
+ <td><input type="radio" name="rate9" value="9"> </td>
+ <td><input type="radio" name="rate9" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<h4> To Kill a Mockingbird
+<table border="0">
+<tr>
+  <td><label for="rate10"> 0-</label></td>	
+  <td><label for="rate10"> -1-</label></td>
+  <td><label for="rate10">-2-</label></td>
+<td><label for="rate10">-3-</label></td>
+  <td><label for="rate10">-4-</label></td>
+<td><label for="rate10">-5-</label></td>
+  <td><label for="rate10">-6-</label></td>
+<td><label for="rate10">-7-</label></td>
+  <td><label for="rate10">-8-</label></td>
+<td><label for="rate10">-9-</label></td>
+  <td><label for="rate10">-10</label></td>
+</tr>
+<tr>
+ 
+<td><input type="radio" name="rate10" value="0"></td> 
+<td><input type="radio" name="rate10" value="1"></td>
+  <td> <input type="radio" name="rate10" value="2"> </td>
+  <td><input type="radio" name="rate10" value="3"> </td>
+<td><input type="radio" name="rate10" value="4"></td>
+  <td> <input type="radio" name="rate10" value="5"> </td>
+  <td><input type="radio" name="rate10" value="6"> </td>
+  <td> <input type="radio" name="rate10" value="7"> </td>
+  <td><input type="radio" name="rate10" value="8"> </td>
+ <td><input type="radio" name="rate10" value="9"> </td>
+ <td><input type="radio" name="rate10" value="10"> </td>
+</tr>
+</table>
+</h4>
+</br>
+<div>
+<input type="submit" value="Done" />
+</div>
+
+</form>
+</fieldset>
+</br> Organised by 
+</p>
+
+
+{% endblock content %}

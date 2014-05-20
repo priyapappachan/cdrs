@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome Note {% endblock %}
+
+{% block content %}
+
+
+<h1 style="color:olive">{{User.user_name}} </h1> 
+<div> <p> <h3> <a href="/{{User.id}}/"><strong> Logout  </strong> </a> </h3>
+ </p> </div>
+<div>
+
+{% for movie in Movies %} 
+<p> <h3> <a href="/{{Session.id}}/movie/{{movie.id}}/"><strong>  {{movie.movie_name}} </strong> </a> </h3>
+ </p>
+{% endfor %}
+
+{% endblock content %}

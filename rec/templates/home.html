@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome Note {% endblock %}
+
+{% block content %}
+<head>
+ <link rel="stylesheet" href="mystyle.css">
+</head>
+<fieldset>
+<legend><h1 style="color:olive">{{User.user_name}}  </h1>
+<div> <p> <h3> <a href="/{{Session.id}}/profile/"><strong> Profile  </strong> </a> </h3>
+ </p> </div></legend>
+
+<form action="/{{Session.id}}/home/" method="post">{% csrf_token %}
+        <input type="text" name="name">
+	<select name="selection">
+	<option value="M">Movie</option>
+	<option value="B">Book</option>
+	<option value="P">Friends</option>
+	</select>
+        <input type="submit" value="Search">
+
+<div class=error>
+	    		{% if Error  %}
+		    	<h6 style="color:red"><b>Invalid search please enter another value!</b></h6>
+			    {% endif %}
+    		</div>
+    </form>
+
+<div> <p> <h3> <a href="/{{User.id}}/"><strong> Logout  </strong> </a> </h3>
+ </p> </div>
+<div> <a href ="/{{Session.id}}/recommendM/" > Movie Recommendations </a> </div>
+
+{% for movie in Movies %} 
+<p> <h3> <a href="/{{Session.id}}/movie/{{movie.id}}/"><strong>  {{movie.movie_name}} </strong> </a> </h3>
+ </p>
+{% endfor %}
+
+<div> <a href ="/{{Session.id}}/recommendB/" > Book Recommendations </a> </div>
+
+{% for book in Books %} 
+<p> <h3> <a href="/{{Session.id}}/book/{{book.id}}/"><strong>  {{book.book_name}} </strong> </a> </h3>
+ </p>
+{% endfor %}
+
+</br> Organised by 
+
+</fieldset>
+{% endblock content %}

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome Note {% endblock %}
+
+{% block content %}
+<head>
+ <link rel="stylesheet" href="mystyle.css">
+</head>
+<fieldset>
+<legend><h1 style="color:olive">{{Friend.user_name}}  </h1>
+<h2 style="color:olive">{{Friend.mail_id}}  </h2>
+<h2 style="color:olive">{{Friend.phonenumber}}  </h2>
+<div> <p> <h3> <a href="/{{Session.id}}/profile/"><strong> Profile  </strong> </a> </h3>
+<div> <p> <h3> <a href="/{{Session.id}}/home/"><strong> Home  </strong> </a> </h3>
+ </p> </div></legend>
+
+
+{% if flag == 0 %}
+
+<form action="/{{Session.id}}/friend/{{Friend.id}}/" method="post">{% csrf_token %}
+Add to Friend list
+</br>
+<label for="friend">Yes</label>
+ <input type="radio" name="friend" value="y">
+<label for="friend">No</label>
+<input type="radio" name="friend" value="n">
+</br>
+</br>
+<input type="submit" name="friends" value="submit">
+</form>
+
+{% endif %}
+
+Watched Movies 
+</br>
+{% for movie in mWatch %} 
+<p> <h3> <a href="/{{Session.id}}/movie/{{movie.id}}/"><strong>  {{movie.movie_name}} </strong> </a> </h3>
+ </p>
+{% endfor %}
+</br>
+
+Read books
+</br>
+{% for book in bWatch %} 
+<p> <h3> <a href="/{{Session.id}}/book/{{book.id}}/"><strong>  {{book.book_name}} </strong> </a> </h3>
+ </p>
+{% endfor %}
+</br>
+
+</br> Organised by 
+
+</fieldset>
+{% endblock content %}

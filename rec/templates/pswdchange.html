@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Welcome Note {% endblock %}
+
+{% block content %}
+<head>
+ <link rel="stylesheet" href="mystyle.css">
+</head>
+<div>
+<fieldset>
+<form action="/{{Session.id}}/profile/pswdchange/" method="post">{% csrf_token %}
+<h1>
+<legend style="color:olive">{{User.user_name}}</legend></h1>
+
+</br></br>
+<label>old password</label><input type="password" name="old_password" value="" maxlength="100"/> </br>
+<label>new password</label><input type="password" name="new_password" value="" maxlength="100"/> </br>
+<input type="submit" value="Change Password" />
+
+
+<div class=error>
+	    		{% if error == 1  %}
+		    	<h6 style="color:red"><b>Please reenter your old password!</b></h6>
+			    {% endif %}
+    		</div>
+</fieldset></div>
+</form>
+{% endblock content %}
