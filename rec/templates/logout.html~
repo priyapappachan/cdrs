@@ -1,8 +1,0 @@
-{% extends "base.html" %}
-
-{% block title %} Welcome Note {% endblock %}
-
-{% block content %}
-<legend><h1 style="color:olive">You are logged out of the system  </h1></legend>
-<div> <p> <h3> <a href="/"><strong> OK </strong> </a> </h3>
- </p> </div>
